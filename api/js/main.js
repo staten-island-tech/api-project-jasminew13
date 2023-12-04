@@ -1,7 +1,7 @@
 import '../css/style.css'
 
 
-const URL = `https://api.ksoft.si/lyrics/artist/{id}/`;
+
 //const URLP = `pokemon/${search}`
 //async asyncronous 
 /* async function getData(URL){
@@ -21,4 +21,9 @@ const URL = `https://api.ksoft.si/lyrics/artist/{id}/`;
     }
 }
 getData(URL); */
-console.log(URL)
+
+const black = `https://cataas.com/cat/black`;
+const white = `https://cataas.com/cat/white`;
+const ginger = `https://cataas.com/cat/ginger`;
+const tabby = `https://cataas.com/cat/tabby`;
+console.log(ginger)
