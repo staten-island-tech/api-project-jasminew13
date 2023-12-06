@@ -1,9 +1,9 @@
 import '../css/style.css'
 
-const black = `https://cataas.com/cat/black`;
+//const black = `https://cataas.com/cat/black`;
 const white = `https://cataas.com/cat/white`;
-const ginger = `https://cataas.com/cat/ginger`;
-const tabby = `https://cataas.com/cat/tabby`;
+//const ginger = `https://cataas.com/cat/ginger`;
+//const tabby = `https://cataas.com/cat/tabby`;
 
 
 async function getData(white){
@@ -27,7 +27,7 @@ getData(white);
 
 
 
-async function addCards (arr){
+/* async function addCards (arr){
     arr.forEach((s) => {
       DOMselectors.container.insertAdjacentHTML("afterend", 
       `<div class="card">
@@ -50,4 +50,4 @@ values.forEach((value) => value.addEventListener("click", function(){
   let newArr = cats.filter((cat) => cat.genre === type);
   clearscreen();
   addCards(newArr);
-}));
+})); */
