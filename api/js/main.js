@@ -4,12 +4,12 @@ import '../css/style.css'
 //const black = `https://cataas.com/cat/black`;
 
 
-const URL = `https://api.fda.gov/drug/label.json`;
+const URL = `https://data.cityofnewyork.us/resource/uiay-nctu.json`;
 
-async function getData(URL){
+async function getData(){
     try {
         //requesting a response REST API's
-        const response = await fetch(URL);
+        const response = await fetch(URL, ["boroughname"]);
         if (response.status !=200) {
 
             throw new Error (response.statusText);
@@ -17,15 +17,20 @@ async function getData(URL){
         }
         //convert response to JSON
         const data = await response.json();
-        document.querySelector("h1").textContent = data.results.purpose;
-        console.log(data.results.purpose)
+        document.getElementById("apiresponse").textContent = data.boroughname;
+        console.log(data.boroughname);
+        console.log(data);
     } catch (error) {
         console.log(error, "UH OH");
         document.querySelector("h1").textContent = "nono";
     }
 }
 getData(URL); 
-
+/* const apiResponse = document.getElementById("apiresponse");
+const adddata = async() => {
+apiResponse.innerHTML = `${data.results.boroughname}`
+}
+adddata(); */
 /* async function addCards (arr){
     arr.forEach((s) => {
       DOMselectors.container.insertAdjacentHTML("afterend", 
