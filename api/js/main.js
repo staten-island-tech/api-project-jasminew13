@@ -13,6 +13,7 @@ async function getData(white){
         if (response.status != 200) {
 
             throw new Error (response.statusText);
+            
         }
         //convert response to JSON
         const data = await response.json();
