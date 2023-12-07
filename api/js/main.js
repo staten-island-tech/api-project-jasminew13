@@ -1,31 +1,29 @@
 import '../css/style.css'
-
-//const black = `https://cataas.com/cat/black`;
-const quote = `https://zenquotes.io/api/quotes`;
 //const ginger = `https://cataas.com/cat/ginger`;
 //const tabby = `https://cataas.com/cat/tabby`;
+//const black = `https://cataas.com/cat/black`;
 
 
-async function getData(quote){
+const URL = `https://api.fda.gov/drug/label.json`;
+
+async function getData(URL){
     try {
         //requesting a response REST API's
-        const response = await fetch(quote);
-        if (response.status != 200) {
+        const response = await fetch(URL);
+        if (response.status !=200) {
 
             throw new Error (response.statusText);
         }
         //convert response to JSON
         const data = await response.json();
-        document.querySelector("h1").textContent = quote.content;
+        document.querySelector("h1").textContent = data.results.purpose;
+        console.log(data.results.purpose)
     } catch (error) {
-        console.log(error,"uh oh");
-        document.querySelector("h1").textContent = "nono"
+        console.log(error, "UH OH");
+        document.querySelector("h1").textContent = "nono";
     }
 }
-getData(quote); 
-
-
-
+getData(URL); 
 
 /* async function addCards (arr){
     arr.forEach((s) => {
@@ -43,7 +41,7 @@ function clearscreen(){
   DOMselectors.container.innerHTML= "";
 };
 
-let values = document.querySelectorAll(".pop, .indiepop, .rnb");
+let values = document.querySelectorAll("");
 
 values.forEach((value) => value.addEventListener("click", function(){
   let type = value.textContent;
