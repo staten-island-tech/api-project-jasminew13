@@ -7,7 +7,14 @@ import '../css/style.css'
 const URL = `https://data.cityofnewyork.us/resource/uiay-nctu.json`;
 
 async function getData(){
-    try {
+  let response = await fetch(URL);
+  let data = await response.json();
+  console.log(data);
+  data.type.forEach(boroughname => {
+    console.log(boroughname)
+  })};
+  getData(URL); 
+   /*  try {
         //requesting a response REST API's
         const response = await fetch(URL, ["boroughname"]);
         if (response.status !=200) {
@@ -17,15 +24,21 @@ async function getData(){
         }
         //convert response to JSON
         const data = await response.json();
-        document.getElementById("apiresponse").textContent = data.boroughname;
-        console.log(data.boroughname);
+        //document.getElementById("apiresponse").textContent = data.boroughname;
         console.log(data);
     } catch (error) {
         console.log(error, "UH OH");
         document.querySelector("h1").textContent = "nono";
     }
-}
-getData(URL); 
+} */
+
+/* let arr = URL.boroughname;
+// data object cant use for each
+data.results.forEach(boroughname => {
+console.log(boroughname)
+  )});
+ */
+
 /* const apiResponse = document.getElementById("apiresponse");
 const adddata = async() => {
 apiResponse.innerHTML = `${data.results.boroughname}`
