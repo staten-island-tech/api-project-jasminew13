@@ -1,59 +1,41 @@
 import '../css/style.css'
-//const ginger = `https://cataas.com/cat/ginger`;
-//const tabby = `https://cataas.com/cat/tabby`;
-//const black = `https://cataas.com/cat/black`;
 
 
 const URL = `https://data.cityofnewyork.us/resource/uiay-nctu.json`;
 
-async function getData(){
+ async function getData(){
   let response = await fetch(URL);
   let data = await response.json();
   console.log(data);
-  data.type.forEach(boroughname => {
-    console.log(boroughname)
-  })};
-  getData(URL); 
-   /*  try {
-        //requesting a response REST API's
-        const response = await fetch(URL, ["boroughname"]);
-        if (response.status !=200) {
+  data.forEach(data => {
+    console.log(data)}
+      )};
+        ; 
 
-            throw new Error (response.statusText);
-            
-        }
-        //convert response to JSON
-        const data = await response.json();
-        //document.getElementById("apiresponse").textContent = data.boroughname;
-        console.log(data);
-    } catch (error) {
-        console.log(error, "UH OH");
-        document.querySelector("h1").textContent = "nono";
-    }
-} */
 
-/* let arr = URL.boroughname;
-// data object cant use for each
-data.results.forEach(boroughname => {
-console.log(boroughname)
-  )});
- */
-
+/*    async function getData(){
+    let response = await fetch(URL);
+    let data = await response.json();
+    console.log(data);
+    data.forEach(data => {
+      let newArr = data.filter((data) => data.boroughname === "Brooklyn")},
+      getData(newArr) );}
+getData(newArr) */
+/*   
+ DOMselectors.container.insertAdjacentHTML("afterend", 
+      `<div class="container">
+      <div class="card">
+        <h3 class="avenue"></h3>
+        <h3 class="street"></h3>
+        <h2 class="theborough"></h2>
+      </div>
+    </div> ` */
 /* const apiResponse = document.getElementById("apiresponse");
 const adddata = async() => {
 apiResponse.innerHTML = `${data.results.boroughname}`
 }
 adddata(); */
-/* async function addCards (arr){
-    arr.forEach((s) => {
-      DOMselectors.container.insertAdjacentHTML("afterend", 
-      `<div class="card">
-      <h2 class="albumname"> ${s.name}</h2>
-      <h2 class="artistname"> ${s.artist}</h2>
-      <img src="${s.image}" alt="" class="image">
-      <h3 class="price">${s.price}</h3>
-  </div>`
-  )})};
+/*
   
 
 function clearscreen(){
