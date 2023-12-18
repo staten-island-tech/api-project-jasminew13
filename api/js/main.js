@@ -1,5 +1,5 @@
 import '../css/style.css'
-
+import { DOMselectors } from './dom';
 
 const URL = `https://data.cityofnewyork.us/resource/uiay-nctu.json`;
 
@@ -9,50 +9,28 @@ const URL = `https://data.cityofnewyork.us/resource/uiay-nctu.json`;
   console.log(data);
   data.forEach(a => {
     DOMselectors.container.insertAdjacentHTML("afterend", `
-        <div class="card">
-      <h2 class="albumname"> ${a.name}</h2>
-      <h2 class="artistname"> ${a.artist}</h2>
-      <img src="${a.image}" alt="" class="image">
-      <h3 class="price">${a.price}</h3>
+    <div class="card">
+    <p><h3 class="organization">${a.orgname}</h3></p>
+   <p><h3 class="avenue">${a.apprfromst}</h3></p> 
+    <p><h3 class="street">${a.appronstre}      </h3></p>
+    <h2 class="theborough">${a.boroughname}</h2>
   </div>`)}
       )};
         ; 
 getData(URL)
 
-/*    async function getData(){
-    let response = await fetch(URL);
-    let data = await response.json();
-    console.log(data);
-    data.forEach(data => {
-      let newArr = data.filter((data) => data.boroughname === "Brooklyn")},
-      getData(newArr) );}
-getData(newArr) */
-/*   
- DOMselectors.container.insertAdjacentHTML("afterend", 
-      `<div class="container">
-      <div class="card">
-        <h3 class="avenue"></h3>
-        <h3 class="street"></h3>
-        <h2 class="theborough">${DOMselectors.boroughname}</h2>
-      </div>
-    </div> ` */
-/* const apiResponse = document.getElementById("apiresponse");
-const adddata = async() => {
-apiResponse.innerHTML = `${data.results.boroughname}`
-}
-adddata(); */
-/*
   
 
 function clearscreen(){
   DOMselectors.container.innerHTML= "";
 };
 
-let values = document.querySelectorAll("");
+let values = document.querySelectorAll(".brooklyn, .bronx, .manhattan, .queens, .statenisland");
 
 values.forEach((value) => value.addEventListener("click", function(){
   let type = value.textContent;
-  let newArr = cats.filter((cat) => cat.genre === type);
+  let newArr = URL.filter((data) => URL.boroughname === type);
   clearscreen();
-  addCards(newArr);
-})); */
+  data();
+  getData(newArr);
+}));

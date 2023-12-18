@@ -6,16 +6,23 @@ body,
   box-sizing: border-box;
  /* font-size: 62.5%; */
 }
+.container, .app {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
 .card{
-  height: 60vh;
-  width: 30vw;
+  height: 40vh;
+  width: 20vw;
   background-color: #d6cdee;
   border-radius: 2rem;
   box-shadow: 10px 10px 5px #3a303f;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: row;
   font-size: 70%;
   margin: 1rem;
