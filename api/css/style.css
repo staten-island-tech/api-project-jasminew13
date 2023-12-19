@@ -4,15 +4,16 @@ body,
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- /* font-size: 62.5%; */
 }
-.container, .app {
+
+.container, .app, .body, #borough_select {
   display: flex;
   text-align: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: row;
 }
+
 .card{
   height: 40vh;
   width: 20vw;
@@ -26,4 +27,5 @@ body,
   flex-direction: row;
   font-size: 70%;
   margin: 1rem;
+  padding: 1rem;
 }

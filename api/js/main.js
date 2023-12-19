@@ -31,7 +31,7 @@ async function getData(URL){
       data.forEach(a => {
         DOMselectors.container.insertAdjacentHTML("afterend", `
         <div class="card">
-        <p><h3 class="organization">${a.orgname}</h3></p>
+        <p><h2 class="organization">${a.orgname}</h2></p>
        <p><h3 class="avenue">${a.apprfromst}</h3></p> 
         <p><h3 class="street">${a.appronstre}      </h3></p>
         <h2 class="theborough">${a.boroughname}</h2>
@@ -48,11 +48,11 @@ function clearscreen(){
   DOMselectors.container.innerHTML= "";
 };
 
-let values = document.querySelectorAll(".brooklyn, .bronx, .manhattan, .queens, .statenisland");
+let values = document.querySelectorAll("value");
 
 values.forEach((value) => value.addEventListener("click", function(){
   let type = value.textContent;
-  let newArr = URL.filter(() => URL.boroughname === type);
+  let newArr = URL.filter((data) => data.boroughname === type);
   clearscreen();
   getData(newArr);
 }));

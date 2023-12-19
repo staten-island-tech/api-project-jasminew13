@@ -8,13 +8,16 @@
   </head>
   <body>
     <div id="app">
-<section class="buttoncontainer">
-  <button class="brooklyn">Brooklyn</button>
-  <button class="bronx">Bronx</button>
-  <button class="manhattan">Manhattan</button>
-  <button class="queens">Queens</button>
-  <button class="statenisland">Staten Island</button>
-  </section>
+      <label for="borough-select">Choose a borough:</label>
+
+      <select name="boroughs" id="borough-select">
+        <option value="">--Please choose an option--</option>
+        <option value="Brooklyn">Brooklyn</option>
+        <option value="statenIsland">Staten Island</option>
+        <option value="Queens">Queens</option>
+        <option value="Bronx">Bronx</option>
+        <option value="Manhattan">Manhattan</option>
+      </select>
 <h1 id="apiresponse"></h1>
 
 <div class="container">
