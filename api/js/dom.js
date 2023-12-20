@@ -1,6 +1,6 @@
 const DOMselectors = {
     container: document.querySelector(".container"),
-    brooklyn: document.querySelector("Brooklyn"),
+    Brooklyn: document.querySelector(".Brooklyn"),
     statenisland: document.querySelector("statenIsland"),
     queens: document.querySelector("Queens"),
     bronx: document.querySelector("Bronx"),

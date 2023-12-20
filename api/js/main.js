@@ -35,8 +35,9 @@ async function getData(URL){
        <p><h3 class="avenue">${a.apprfromst}</h3></p> 
         <p><h3 class="street">${a.appronstre}      </h3></p>
         <h2 class="theborough">${a.boroughname}</h2>
-      </div>`)})
+      </div>`)}); 
       
+
   } catch (error) {
       console.log(error,"uh oh");
       document.querySelector("h1").textContent = "nono"
@@ -44,15 +45,17 @@ async function getData(URL){
 }
 getData(URL);
 
-function clearscreen(){
+function clearFields(){
   DOMselectors.container.innerHTML= "";
 };
-
-let values = document.querySelectorAll("value");
-
-values.forEach((value) => value.addEventListener("click", function(){
-  let type = value.textContent;
-  let newArr = URL.filter((data) => data.boroughname === type);
-  clearscreen();
-  getData(newArr);
-}));
+ DOMselectors.Brooklyn.addEventListener("click", function () {
+        clearFields(); 
+      const printbk = data.filter((dat) => dat.boroughname === "Brooklyn");
+      printbk.forEach(a => 
+            DOMselectors.container.insertAdjacentHTML("afterend", `
+            <div class="card">
+            <p><h2 class="organization">${a.orgname}</h2></p>
+           <p><h3 class="avenue">${a.apprfromst}</h3></p> 
+            <p><h3 class="street">${a.appronstre}      </h3></p>
+            <h2 class="theborough">${a.boroughname}</h2> `))
+       });
