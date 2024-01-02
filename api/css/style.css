@@ -8,7 +8,7 @@ body,
 
 .container, .app, .body, #borough_select {
   display: flex;
-  text-align: center;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: row;

@@ -48,7 +48,7 @@ getData(URL);
 function clearFields(){
   DOMselectors.container.innerHTML= "";
 };
- DOMselectors.Brooklyn.addEventListener("click", function () {
+/*  DOMselectors.Brooklyn.addEventListener("select", function () {
         clearFields(); 
       const printbk = data.filter((dat) => dat.boroughname === "Brooklyn");
       printbk.forEach(a => 
@@ -58,4 +58,23 @@ function clearFields(){
            <p><h3 class="avenue">${a.apprfromst}</h3></p> 
             <p><h3 class="street">${a.appronstre}      </h3></p>
             <h2 class="theborough">${a.boroughname}</h2> `))
-       });
+       }); */
+       function addcards(arr){
+        arr.forEach((s) => {
+          DOMselectors.container.insertAdjacentHTML("afterend", 
+          `<div class="card">
+          <p><h2 class="organization">${s.orgname}</h2></p>
+         <p><h3 class="avenue">${s.apprfromst}</h3></p> 
+          <p><h3 class="street">${s.appronstre}      </h3></p>
+          <h2 class="theborough">${s.boroughname}</h2>
+      </div>`
+      )})};
+      addcards(URL)
+    clearFields();
+    let buttons = document.getElementById("#borough-select");
+    
+    buttons.forEach((button) => button.addEventListener("select", function(){
+      let type = button.textContent;
+      let newArr = data.filter((data) => data.boroughname === type);
+      addcards(newArr);
+      clearFields();}))
