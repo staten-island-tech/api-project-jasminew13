@@ -5,26 +5,26 @@ body,
   padding: 0;
   box-sizing: border-box;
 }
-
-.container, .app, .body, #borough_select {
+.root{
+  --h2: 4.063rem;
+}
+.container, .card {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: row;
+  flex-shrink: 0;
+  font-size: var(--h2);
 }
 
 .card{
   height: 30vh;
   width: 20vw;
   background-color: #d6cdee;
-  border-radius: 2rem;
+  font-size: var(--h2);
+  border-radius: 1rem;
   box-shadow: 10px 10px 5px #3a303f;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
   font-size: 70%;
   margin: 1rem;
   padding: 1rem;
