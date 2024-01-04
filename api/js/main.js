@@ -1,12 +1,9 @@
 import '../css/style.css'
 import { DOMselectors } from './dom';
 
-const URL = `https://data.cityofnewyork.us/resource/uiay-nctu.json`;
+const URL = `https://data.cityofnewyork.us/resource/uiay-nctu.json`
 
-function clearFields(){
-  DOMselectors.container.innerHTML= "";
-};
-async function getData(URL){
+async function getData(){
   try {
       //requesting a response REST API's
       const response = await fetch(URL);
@@ -28,14 +25,15 @@ async function getData(URL){
       document.querySelector("h1").textContent = "nono"
   }
 }
-    let options = document.getElementById("#borough-select");
+getData(URL)
+ /*    let options = document.getElementById("#borough-select");
     
     options.forEach((option) => option.addEventListener("select", function(){
       let type = option.textContent;
       let newArr = data.filter((data) => data.boroughname === type);
       getData(newArr);
       clearFields();}))
-
+ */
 
 /*  DOMselectors.Brooklyn.addEventListener("select", function () {
         clearFields(); 
