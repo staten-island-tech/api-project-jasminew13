@@ -28,7 +28,6 @@ async function getData(URL){
       document.querySelector("h1").textContent = "nono"
   }
 }
-getData(URL);
     let options = document.getElementById("#borough-select");
     
     options.forEach((option) => option.addEventListener("select", function(){
