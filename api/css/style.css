@@ -18,7 +18,9 @@ body,
   flex-shrink: 0;
   font-size: var(--h2);
 }
-
+.h1{
+  text-align: center;
+}
 .card{
   height: 30vh;
   width: 20vw;
