@@ -2,7 +2,18 @@ import '../css/style.css'
 import { DOMselectors } from './dom';
 
 const URL = `https://data.cityofnewyork.us/resource/uiay-nctu.json`
-
+let form = document.forms['boroughselect'];
+let nyc = form.boroughs;
+let optionie = form.boroughs.options;
+form.onsubmit = function(e){
+  e.preventDefault();
+  let optionval = this.boroughs.value
+  optionval.forEach((option) => option.addEventListener("select", function(){
+    let type = option.textContent;
+    let newArr = data.filter((data) => data.boroughname === type);
+    getData(newArr);
+    clearFields();}));
+}
 async function getData(){
   try {
       //requesting a response REST API's
