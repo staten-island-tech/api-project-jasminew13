@@ -25,7 +25,7 @@ async function getData(){
     let buttons = document.querySelectorAll(".Brooklyn, .StatenIsland, .Queens, .Bronx, .Manhattan")
 
   buttons.forEach((button) => button.addEventListener("click", function (){
-    let type = button.textContent.toLowerCase();
+    let type = button.textContent;
     let newArr = newcards.filter((newcard) => newcard.boroughname === type);
     clearFields();
     add(newArr);
