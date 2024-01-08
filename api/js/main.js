@@ -3,63 +3,65 @@ import { DOMselectors } from './dom';
 
 const URL = `https://data.cityofnewyork.us/resource/uiay-nctu.json`
 
-let form = document.forms['boroughselect'];
-let nyc = form.boroughs;
-let optionie = nyc.options;
-
-form.onsubmit = function(e){
-  e.preventDefault();
-  let optionvalue = optionie
-  optionvalue.forEach((option) => option.addEventListener("select", function(){
-    let type = option.textContent;
-    let newArr = data.filter((data) => data.boroughname === type);
-    getData(newArr);
-    clearFields();}));
+function add(stuff){
+stuff.forEach(a => {
+        DOMselectors.container.insertAdjacentHTML("beforeend", `
+        <div class="card">
+        <p><h2 class="organization">${a.orgname}</h2></p> 
+        <p><h3 class="street">${a.appronstre}      </h3></p>
+        <h2 class="theborough">${a.boroughname}</h2>
+      </div>`)}); 
 }
 
 async function getData(){
   try {
-      //requesting a response REST API's
       const response = await fetch(URL);
       if (response.status != 200) {
           throw new Error (response.statusText);
       }
-      //convert response to JSON
-      const data = await response.json();
-      data.forEach(a => {
-        DOMselectors.container.insertAdjacentHTML("beforeend", `
-        <div class="card">
-        <p><h2 class="organization">${a.orgname}</h2></p>
-       <p><h3 class="avenue">${a.apprfromst}</h3></p> 
-        <p><h3 class="street">${a.appronstre}      </h3></p>
-        <h2 class="theborough">${a.boroughname}</h2>
-      </div>`)}); 
+      const newcards = await response.json();
+      add(newcards)
+
+    let buttons = document.querySelectorAll(".Brooklyn, .StatenIsland, .Queens, .Bronx, .Manhattan")
+
+  buttons.forEach((button) => button.addEventListener("click", function (){
+    let type = button.textContent.toLowerCase();
+    let newArr = newcards.filter((newcard) => newcard.boroughname === type);
+    clearFields();
+    add(newArr);
+    console.log(newArr);
+}));
+
+    const searchbutton = document.getElementById("searchingbtn");
+    searchbutton.addEventListener("click", function() {
+    console.log("clickedd");
+    filtering(newcards)
+    })
+return newcards;
   } catch (error) {
       console.log(error,"uh oh");
-      document.querySelector("h1").textContent = "nono"
+  }
+}
+
+
+function clearFields(){
+  const fields = document.querySelector(".container");
+  fields.innerHTML = "";
+}
+function filtering (newcards){
+  const searchingvalue = document.getElementById("bsearch").value.trim();
+  console.log("Searching Value", searchingvalue);
+  const avenues = newcards.filter((newcard) => newcard.appronstre.includes(searchingvalue));
+  console.log("Avenues", avenues)
+  clearFields();
+
+  if (searchingvalue.length === 0){
+    DOMselectors.container.insertAdjacentHTML('beforebegin', `<h2> no streets for ${searchingvalue}</h2>`);
+  } else {
+    add(avenues);
   }
 }
 getData(URL)
- /*    let options = document.getElementById("#borough-select");
-    
-    options.forEach((option) => option.addEventListener("select", function(){
-      let type = option.textContent;
-      let newArr = data.filter((data) => data.boroughname === type);
-      getData(newArr);
-      clearFields();}))
- */
-
-/*  DOMselectors.Brooklyn.addEventListener("select", function () {
-        clearFields(); 
-      const printbk = data.filter((dat) => dat.boroughname === "Brooklyn");
-      printbk.forEach(a => 
-            DOMselectors.container.insertAdjacentHTML("afterend", `
-            <div class="card">
-            <p><h2 class="organization">${a.orgname}</h2></p>
-           <p><h3 class="avenue">${a.apprfromst}</h3></p> 
-            <p><h3 class="street">${a.appronstre}      </h3></p>
-            <h2 class="theborough">${a.boroughname}</h2> `))
-       }); */
 /*        function addcards(arr){
         arr.forEach((s) => {
           DOMselectors.container.insertAdjacentHTML("afterend", 

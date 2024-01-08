@@ -6,7 +6,11 @@ body,
   box-sizing: border-box;
 }
 .root{
+  --h1: 7.594rem;
   --h2: 4.063rem;
+  --h3: 3.375rem;
+  --h4: 2.5rem;
+  --h5: 1.5rem;
 }
 .container, .card {
   display: flex;
@@ -37,6 +41,16 @@ body,
   font-size: 70%;
   margin: 1rem;
   padding: 1rem;
+}
+.bbuttons, #bsearch {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row;
+  font-size: var(--h3);
+  margin: 2rem;
+  align-items: center;
 }
 @media (min-width: 30rem) and (max-width: 50rem) {
 }

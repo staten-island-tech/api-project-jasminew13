@@ -4,31 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>apiapi</title>
+    <title>Open Streets API</title>
   </head>
   <body>
     <h1 class="h1">OPEN STREETS</h1>
     <div id="app">
-      <form name="boroughselect" action="">
-      <label for="borough-select">Choose a borough:</label>
+<div class="bbuttons">
+        <button class="Brooklyn">Brooklyn</button>
+        <button class="StatenIsland">Staten Island</button>
+        <button class="Queens">Queens</button>
+        <button class="Bronx">Bronx</button>
+        <button class="Manhattan">Manhattan</button>
+ </div>
 
-      <select name="boroughs" id="borough-select">
-        <option value="">--Please choose an option--</option>
-        <option value="Brooklyn">Brooklyn</option>
-        <option value="statenIsland">Staten Island</option>
-        <option value="Queens">Queens</option>
-        <option value="Bronx">Bronx</option>
-        <option value="Manhattan">Manhattan</option>
-      </select>
-      <input type="submit" value="submit" class="submit">
-</form>
+<label for="bsearch">SEARCH A STREET OR AVENUE</label>
+  <div>
+    <input type="search" id="bsearch" name="boroughs" placeholder="search.."/>
+    <button id="searchingbtn">Search</button>
+  </div>
 <div class="container">
       <!-- <div class="card">
         <h3 class="avenue"></h3>
         <h3 class="street"></h3>
         <h2 class="theborough"></h2>
       </div> -->
-    </div> </div>
+    </div> 
+  </div>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
